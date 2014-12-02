@@ -16,7 +16,7 @@
 			"homepage": "https://github.com/aprendephp/ApResellerclubBundle/graphs/contributors"
 		}
 	],
-	"require": {
+	"require": { 	
 		"php": ">=5.3.2",
 		"symfony/framework-bundle": "~2.3"
 	},
