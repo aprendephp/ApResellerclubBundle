@@ -1,7 +1,7 @@
 ApResellerClubBundle
 ====================
 
-### Example
+### Example:
 
 ```php
 		$this->resellerClub = $container->get('ap_resellerclub.api');
