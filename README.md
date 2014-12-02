@@ -10,10 +10,8 @@ Add this line in composer.json
          "ap/resellerclubbundle": "1.0.*@dev"
 ```
 
+AppKernel.php
 ``` php
-<?php
-// app/AppKernel.php
-
 public function registerBundles()
 {
     $bundles = array(
@@ -31,8 +29,9 @@ In parameters.yml
     reseller_test:
     reseller_rformat:
 ``` 
-For test use a Demo Account
-http://cp.onlyfordemo.net/servlet/ResellerSignupServlet?&validatenow=false
+
+### Important:
+[Testing ONLY with a Demo Account](http://cp.onlyfordemo.net/servlet/ResellerSignupServlet?&validatenow=false)
 
 
 ### Example:
@@ -44,9 +43,8 @@ http://cp.onlyfordemo.net/servlet/ResellerSignupServlet?&validatenow=false
         $this->resellerClub->setOperation($customerSignup);
         $this->customerId = $this->resellerClub->exec();
 ```
-### Important:
+### Disclaimer:
 THIS SOFTWARE IS PROVIDED BY "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES
 
 
 PR are wellcome
-
