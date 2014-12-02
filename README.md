@@ -5,7 +5,7 @@ ApResellerClubBundle
 
 
 ``` bash
-$ composer require friendsofsymfony/user-bundle "~2.0@dev"
+
 ```
 
 ``` php
