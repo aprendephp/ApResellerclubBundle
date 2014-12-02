@@ -1,11 +1,11 @@
 ApResellerClubBundle
 ====================
 
-### Example:
-
+### Instalation:
+Add this line in composer.json
 
 ``` bash
-
+"ap/resellerclubbundle": "1.0.*@dev"
 ```
 
 ``` php
@@ -21,6 +21,7 @@ public function registerBundles()
 }
 ```
 
+### Example:
 ```php
 		$this->resellerClub = $container->get('ap_resellerclub.api');
 
