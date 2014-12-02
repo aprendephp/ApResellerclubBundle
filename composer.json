@@ -5,6 +5,7 @@
 	"keywords": ["Resellerclub Bundle"],
 	"homepage": "https://github.com/aprendephp",
 	"license": "MIT",
+	"minimum-stability": "dev",
 	"authors": [
 		{
 			"name": "Yamir Ramírez",
