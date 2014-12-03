@@ -1,5 +1,6 @@
 <?php
 namespace Ap\ResellerclubBundle\Api\Customers\Operations;
+
 use Ap\ResellerclubBundle\Api\Customers\Customers;
 use Ap\ResellerclubBundle\Api\Interfaces\OperationInterface;
 
@@ -49,9 +50,9 @@ class CustomerSignup extends Customers implements OperationInterface
         $this->data['city'] = $city;
         $this->data['state'] = $state;
 
-        if($state == 'Not Applicable') {
+        if ($state == 'Not Applicable') {
             $this->data['other-state'] = $country;
-        }else {
+        } else {
             $this->data['other-state'] = $otherState;
         }
 

@@ -1,5 +1,6 @@
 <?php
 namespace Ap\ResellerclubBundle\Api\Customers\Operations;
+
 use Ap\ResellerclubBundle\Api\Customers\Customers;
 use Ap\ResellerclubBundle\Api\Interfaces\OperationInterface;
 

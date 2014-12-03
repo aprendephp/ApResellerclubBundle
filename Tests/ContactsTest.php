@@ -18,14 +18,14 @@ class ContactsTest extends WebTestCase
         $container = $client->getContainer();
         $this->resellerClub = $container->get('ap_resellerclub.api');
 
-        $customerSignup = new CustomerSignup('userjuan15@nen.com','Aasdfasd256','Juan Alvares', 'N/A', 'Callminas 78890', 'San Jose', 'San Jose', null, 'UY','820347', '34', '87508745', 'es');
+        $customerSignup = new CustomerSignup('userjuan15@nen.com', 'Aasdfasd256', 'Juan Alvares', 'N/A', 'Callminas 78890', 'San Jose', 'San Jose', null, 'UY', '820347', '34', '87508745', 'es');
         $this->resellerClub->setOperation($customerSignup);
         $this->customerId = $this->resellerClub->exec();
     }
 
     public function testContactAdd()
     {
-        $contactAdd = new ContactAdd('Tom', 'N/A', 'userjuan15@nen.com', 'la luna 456', 'Ciudad de la paz', 'UY', '134235', '34','452343452', $this->customerId, 'Contact');
+        $contactAdd = new ContactAdd('Tom', 'N/A', 'userjuan15@nen.com', 'la luna 456', 'Ciudad de la paz', 'UY', '134235', '34', '452343452', $this->customerId, 'Contact');
         $this->resellerClub->setOperation($contactAdd);
         $response = json_decode($this->resellerClub->exec(), true);
 
@@ -37,8 +37,8 @@ class ContactsTest extends WebTestCase
 
     private function checkError($response)
     {
-        if(isset($response['status'])) {
-            if($response['status'] == 'ERROR') {
+        if (isset($response['status'])) {
+            if ($response['status'] == 'ERROR') {
                 throw (new \Exception($response['message']));
             }
         }
@@ -46,10 +46,10 @@ class ContactsTest extends WebTestCase
 
     public function tearDown()
     {
-            $customerDelete = new CustomerDelete($this->customerId);
-            $this->resellerClub->setOperation($customerDelete);
-            $response = json_decode($this->resellerClub->exec(), true);
-            $this->checkError($response);
-            $this->assertTrue($response);
+        $customerDelete = new CustomerDelete($this->customerId);
+        $this->resellerClub->setOperation($customerDelete);
+        $response = json_decode($this->resellerClub->exec(), true);
+        $this->checkError($response);
+        $this->assertTrue($response);
     }
 }

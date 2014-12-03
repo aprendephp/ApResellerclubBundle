@@ -2,7 +2,6 @@
 
 namespace Ap\ResellerclubBundle\Api\Domains;
 
-
 use Ap\ResellerclubBundle\Api\Interfaces\RequestTypeInterface;
 
 class Domains implements RequestTypeInterface

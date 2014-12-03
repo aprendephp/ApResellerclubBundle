@@ -20,7 +20,7 @@ class CustomersTest extends WebTestCase
 
     public function testSignup()
     {
-        $customerSignup = new CustomerSignup('userjuan15@nen.com','Aasdfasd256','Juan Alvares', 'N/A', 'Callminas 78890', 'San Jose', 'San Jose', null, 'UY','820347', '34', '87508745', 'es');
+        $customerSignup = new CustomerSignup('userjuan15@nen.com', 'Aasdfasd256', 'Juan Alvares', 'N/A', 'Callminas 78890', 'San Jose', 'San Jose', null, 'UY', '820347', '34', '87508745', 'es');
 
         $this->resellerClub->setOperation($customerSignup);
 
@@ -37,7 +37,7 @@ class CustomersTest extends WebTestCase
      */
     public function testCustomersSearch()
     {
-        $searchCustomers =new CustomersSearch(2,1);
+        $searchCustomers = new CustomersSearch(2, 1);
 
         $this->resellerClub->setOperation($searchCustomers);
 
@@ -54,12 +54,12 @@ class CustomersTest extends WebTestCase
      */
     public function testCustomerDelete()
     {
-        $searchCustomers =new CustomersSearch(10,1);
+        $searchCustomers = new CustomersSearch(10, 1);
         $this->resellerClub->setOperation($searchCustomers);
         $response = json_decode($this->resellerClub->exec(), true);
 
         $this->checkError($response);
-        if($response['recsonpage'] >= 1) {
+        if ($response['recsonpage'] >= 1) {
             unset($response['recsonpage']);
             unset($response['recsindb']);
         }
@@ -75,8 +75,8 @@ class CustomersTest extends WebTestCase
 
     private function checkError($response)
     {
-        if(isset($response['status'])) {
-            if($response['status'] == 'ERROR') {
+        if (isset($response['status'])) {
+            if ($response['status'] == 'ERROR') {
                 throw (new \Exception($response['message']));
             }
         }

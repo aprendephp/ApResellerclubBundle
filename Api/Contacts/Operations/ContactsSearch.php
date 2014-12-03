@@ -19,12 +19,12 @@ class ContactsSearch extends Contacts implements OperationInterface
      * @param $noOfRecords
      * @param $pageNo
      * @param array $options
-     *              contact-id 	Array of Integers 	Optional 	Array of Contact Ids for listing of specific Contacts
-     *              status 		Array of Strings 	Optional 	List of Contact statuses. These can take any values from: InActive, Active, Suspended, Deleted
-     *              name 		String 				Optional 	Name of Contact
-     *              company 	String 				Optional 	Name of the Company
-     *              email 		String 				Optional 	Email address of the Contact
-     *              type 		String 				Optional 	Type of contact. Valid values are: Contact, CoopContact, UkContact, EuContact, Sponsor, CnContact, CoContact, CaContact, DeContact, EsContact.
+     *                       contact-id 	Array of Integers 	Optional 	Array of Contact Ids for listing of specific Contacts
+     *                       status 		Array of Strings 	Optional 	List of Contact statuses. These can take any values from: InActive, Active, Suspended, Deleted
+     *                       name 		String 				Optional 	Name of Contact
+     *                       company 	String 				Optional 	Name of the Company
+     *                       email 		String 				Optional 	Email address of the Contact
+     *                       type 		String 				Optional 	Type of contact. Valid values are: Contact, CoopContact, UkContact, EuContact, Sponsor, CnContact, CoContact, CaContact, DeContact, EsContact.
      */
 
     public function __construct($customerId, $noOfRecords, $pageNo, array $options = null)

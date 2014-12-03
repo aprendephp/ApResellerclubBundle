@@ -21,12 +21,11 @@ class DomainsTest extends WebTestCase
         $container = $client->getContainer();
         $this->resellerClub = $container->get('ap_resellerclub.api');
 
-
-        $customerSignup = new CustomerSignup('userjuan45@nen.com','Aasdfasd256','Juan Alvares', 'N/A', 'Callminas 78890', 'San Jose', 'San Jose', null, 'UY','820347', '34', '87508745', 'es');
+        $customerSignup = new CustomerSignup('userjuan45@nen.com', 'Aasdfasd256', 'Juan Alvares', 'N/A', 'Callminas 78890', 'San Jose', 'San Jose', null, 'UY', '820347', '34', '87508745', 'es');
         $this->resellerClub->setOperation($customerSignup);
         $this->customerId = $this->resellerClub->exec();
 
-        $contactAdd = new ContactAdd('Tom', 'N/A', 'userjuan45@nen.com', 'la luna 456', 'Ciudad de la paz', 'UY', '134235', '34','452343452', $this->customerId, 'Contact');
+        $contactAdd = new ContactAdd('Tom', 'N/A', 'userjuan45@nen.com', 'la luna 456', 'Ciudad de la paz', 'UY', '134235', '34', '452343452', $this->customerId, 'Contact');
         $this->resellerClub->setOperation($contactAdd);
         $this->contactId = $this->resellerClub->exec();
     }
@@ -34,24 +33,24 @@ class DomainsTest extends WebTestCase
     public function testDomainRegister()
     {
         $registerDomain = new DomainRegister('ialerebaso.com', '1', $this->customerId, $this->contactId, $this->contactId, $this->contactId, $this->contactId, 'NoInvoice');
-        $registerDomain->setExtraData(['ns1.onlyfordemo.net','ns2.onlyfordemo.net']);
+        $registerDomain->setExtraData(['ns1.onlyfordemo.net', 'ns2.onlyfordemo.net']);
 
         $this->resellerClub->setOperation($registerDomain, $registerDomain->getExtraData());
         $response = json_decode($this->resellerClub->exec(), true);
         $this->checkError($response);
-ladybug_dump($response);
-        $this->assertEquals('Success',$response['actionstatus']);
+        ladybug_dump($response);
+        $this->assertEquals('Success', $response['actionstatus']);
     }
 
     public function testSearchDomains()
     {
-        $searchDomains = new DomainsSearch(10,1,['domain-name' => 'ialerebaso.com']);
+        $searchDomains = new DomainsSearch(10, 1, ['domain-name' => 'ialerebaso.com']);
         $this->resellerClub->setOperation($searchDomains);
 
         $response = json_decode($this->resellerClub->exec(), true);
 
         $this->checkError($response);
-        if($response['recsonpage'] >= 1) {
+        if ($response['recsonpage'] >= 1) {
             unset($response['recsonpage']);
             unset($response['recsindb']);
         }
@@ -66,7 +65,7 @@ ladybug_dump($response);
      */
     public function testRenewDomain()
     {
-        $searchDomains = new DomainsSearch(10,1,['domain-name' => 'ialerebaso.com']);
+        $searchDomains = new DomainsSearch(10, 1, ['domain-name' => 'ialerebaso.com']);
         $this->resellerClub->setOperation($searchDomains);
 
         $response = json_decode($this->resellerClub->exec(), true);
@@ -79,13 +78,13 @@ ladybug_dump($response);
         $renewDomain = new DomainRenew($domainResponse['orders.orderid'], 1, $domainResponse['orders.endtime'], 'NoInvoice');
         $this->resellerClub->setOperation($renewDomain);
         $response = json_decode($this->resellerClub->exec(), true);
-ladybug_dump($response);
+        ladybug_dump($response);
     }
 
     private function checkError($response)
     {
-        if(isset($response['status'])) {
-            if($response['status'] == 'ERROR') {
+        if (isset($response['status'])) {
+            if ($response['status'] == 'ERROR') {
                 throw (new \Exception($response['message']));
             }
         }

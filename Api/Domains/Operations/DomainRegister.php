@@ -59,7 +59,7 @@ class DomainRegister extends Domains implements OperationInterface
 
     public function setExtraData($dnss)
     {
-        foreach($dnss as $dns) {
+        foreach ($dnss as $dns) {
             $this->extraData = $this->extraData.'ns='.$dns.'&';
         }
         $this->extraData = substr($this->extraData, 0, -1);

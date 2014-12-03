@@ -15,7 +15,7 @@ class DomainRenew extends Domains implements OperationInterface
 {
     private $data;
 
-    public function __construct($orderId, $years, $expDate, $invoiceOption,array $options = array())
+    public function __construct($orderId, $years, $expDate, $invoiceOption, array $options = array())
     {
         $this->data['order-id'] = $orderId;
         $this->data['years'] = $years;

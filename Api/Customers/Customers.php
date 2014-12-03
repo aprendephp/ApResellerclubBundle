@@ -4,7 +4,6 @@ namespace Ap\ResellerclubBundle\Api\Customers;
 
 use Ap\ResellerclubBundle\Api\Interfaces\RequestTypeInterface;
 
-
 class Customers implements RequestTypeInterface
 {
     /**
