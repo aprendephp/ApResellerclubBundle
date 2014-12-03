@@ -20,6 +20,9 @@ public function registerBundles()
     );
 }
 ```
+``` bash
+  composer update
+```
 
 ### Configuration:
 In parameters.yml
