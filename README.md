@@ -21,6 +21,16 @@ public function registerBundles()
 }
 ```
 
+### Example:
+```php
+		$this->resellerClub = $container->get('ap_resellerclub.api');
+
+		$customerSignup = new CustomerSignup('anyuser@asf.com','anypass','A Good Name ', 'Company', 'Avenue 78890', 'San Jhon', 'San Jhon', null, 'UY','820347', '34', '87508745', 'es');
+
+        $this->resellerClub->setOperation($customerSignup);
+        $this->customerId = $this->resellerClub->exec();
+```
+
 ### Configuration:
 In parameters.yml
 ``` yml
@@ -33,16 +43,6 @@ In parameters.yml
 ### Important:
 [Testing ONLY with a Demo Account](http://cp.onlyfordemo.net/servlet/ResellerSignupServlet?&validatenow=false)
 
-
-### Example:
-```php
-		$this->resellerClub = $container->get('ap_resellerclub.api');
-
-		$customerSignup = new CustomerSignup('anyuser@asf.com','anypass','A Good Name ', 'Company', 'Avenue 78890', 'San Jhon', 'San Jhon', null, 'UY','820347', '34', '87508745', 'es');
-
-        $this->resellerClub->setOperation($customerSignup);
-        $this->customerId = $this->resellerClub->exec();
-```
 ### Disclaimer:
 THIS SOFTWARE IS PROVIDED BY "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES
 
