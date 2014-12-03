@@ -21,6 +21,15 @@ public function registerBundles()
 }
 ```
 
+### Configuration:
+In parameters.yml
+``` yml
+    reseller_authuserid:
+    reseller_apikey:
+    reseller_test:
+    reseller_rformat:
+``` 
+
 ### Example:
 ```php
 		$this->resellerClub = $container->get('ap_resellerclub.api');
@@ -30,15 +39,6 @@ public function registerBundles()
         $this->resellerClub->setOperation($customerSignup);
         $this->customerId = $this->resellerClub->exec();
 ```
-
-### Configuration:
-In parameters.yml
-``` yml
-    reseller_authuserid:
-    reseller_apikey:
-    reseller_test:
-    reseller_rformat:
-``` 
 
 ### Important:
 [Testing ONLY with a Demo Account](http://cp.onlyfordemo.net/servlet/ResellerSignupServlet?&validatenow=false)
