@@ -21,7 +21,7 @@ public function registerBundles()
 }
 ```
 
-### Instalation:
+### Configuration:
 In parameters.yml
 ``` yml
     reseller_authuserid:
