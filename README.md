@@ -20,6 +20,8 @@ public function registerBundles()
     );
 }
 ```
+
+Update:
 ``` bash
   composer update
 ```
