@@ -1,4 +1,4 @@
 services:
     ap_resellerclub.api:
         class: Ap\ResellerclubBundle\Api\Resellerapi
-        arguments: [%reseller_authuserid%, %reseller_apikey%, %reseller_test%, %reseller_rformat%]
+        arguments: [%reseller_authuserid%, %reseller_apikey%, %reseller_test%]

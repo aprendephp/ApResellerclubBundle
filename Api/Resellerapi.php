@@ -16,24 +16,16 @@ class Resellerapi
     protected $dataquery;
     protected $authorization;
 
-    public function __construct($authuserid,  $apikey,  $test = null, $rformat = null)
+    public function __construct($authuserid,  $apikey,  $test = null)
     {
-        $rformat = $rformat ?  $rformat : "json";
-
-        if (strcmp($rformat, "json") or  strcmp($rformat, "xml")) {
-            $this->rformat = $rformat;
-        } else {
-            throw new \Exception('only json and xml are supported');
-        }
-
         if ((strcmp($authuserid, "") == 0) or (strcmp($apikey, "") == 0)) {
             throw new \Exception('authuserid or apikey is required');
         } else {
             $this->authorization["auth-userid"] = urlencode($authuserid);
-            $this->authorization["api-key"]     = urlencode($apikey);
+            $this->authorization["api-key"] = urlencode($apikey);
         }
 
-        $this->is_test    = $test ? "test." : "";
+        $this->is_test = $test ? "test." : "";
 
         $this->beginquery = "https://".$this->is_test."httpapi.com/api";
 
@@ -57,9 +49,7 @@ class Resellerapi
             $this->beginquery.
             $operation->getRequestType().
             $operation->getOperation().
-            ".".
-            $this->rformat.
-            "?".
+            ".json?".
             http_build_query($this->authorization).
             '&'.
             http_build_query($operation->getData()).

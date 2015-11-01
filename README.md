@@ -32,7 +32,6 @@ In parameters.yml
     reseller_authuserid:
     reseller_apikey:
     reseller_test:
-    reseller_rformat:
 ``` 
 
 ### Example:
